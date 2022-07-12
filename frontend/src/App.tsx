@@ -16,6 +16,10 @@ import { Vehicles } from './components/Vehicles';
 function App() {
   const [theme, setTheme] = useState('dark');
 
+  const changeTheme = () => {
+    theme === 'dark' ? setTheme('light') : setTheme('dark');
+  };
+
   useEffect(() => {
     const registerAnimations = () => {
       const sr = scrollReveal({
@@ -46,7 +50,7 @@ function App() {
 
   return (
     <div className="app" data-theme={theme}>
-      <Navbar />
+      <Navbar changeTheme={() => changeTheme()} currentTheme={theme} />
       <Home />
       <Vehicles />
       <Categories />

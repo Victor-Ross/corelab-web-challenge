@@ -4,7 +4,12 @@ import { MdClose } from 'react-icons/md';
 import { ImSun } from 'react-icons/im';
 import { BsFillMoonFill } from 'react-icons/bs';
 
-export const Navbar = () => {
+interface INavbarProps {
+  changeTheme: () => void;
+  currentTheme: string;
+}
+
+export const Navbar = ({ changeTheme, currentTheme }: INavbarProps) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const html = document.querySelector('html');
@@ -29,6 +34,13 @@ export const Navbar = () => {
                 }}
               />
             )}
+            <div onClick={changeTheme}>
+              {currentTheme === 'dark' ? (
+                <ImSun className="sun" fontSize="1.4rem" />
+              ) : (
+                <BsFillMoonFill className="moon" fontSize="1.4rem" />
+              )}
+            </div>
           </div>
           <div className={`links ${isNavOpen ? 'responsive-toggle' : ''}`}>
             <ul>
@@ -46,6 +58,13 @@ export const Navbar = () => {
               </li>
               <li>
                 <a href="#">About us</a>
+              </li>
+              <li onClick={changeTheme} className="color-mode">
+                {currentTheme === 'dark' ? (
+                  <ImSun className="sun" fontSize="1.4rem" />
+                ) : (
+                  <BsFillMoonFill className="moon" fontSize="1.4rem" />
+                )}
               </li>
             </ul>
           </div>

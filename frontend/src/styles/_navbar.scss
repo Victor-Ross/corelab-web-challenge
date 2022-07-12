@@ -65,6 +65,15 @@ nav {
               font-weight: bold;
               white-space: nowrap;
             }
+            .sun {
+              color: yellow;
+            }
+            .moon {
+              color: blue;
+            }
+          }
+          .color-mode {
+            display: none;
           }
         }
       }
@@ -106,6 +115,9 @@ nav {
           ul {
             flex-direction: row;
             height: 1rem;
+            .color-mode {
+              display: block;
+            }
           }
         }
       }
